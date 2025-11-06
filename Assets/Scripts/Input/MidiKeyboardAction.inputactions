@@ -1,0 +1,87 @@
+{
+    "version": 1,
+    "name": "MidiKeyboardAction",
+    "maps": [
+        {
+            "name": "InGame",
+            "id": "51b6b1ee-9857-416e-8d50-99d6b373f993",
+            "actions": [
+                {
+                    "name": "white1",
+                    "type": "Button",
+                    "id": "98cf0e32-8d01-4061-8bca-eda5a735e089",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "black1",
+                    "type": "Button",
+                    "id": "9fba99b1-bc55-4872-85ee-1b5f366b1717",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "white2",
+                    "type": "Button",
+                    "id": "8ac06bfc-a463-4ae0-999d-8da618035292",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "65ccf635-561e-4e2a-94a2-67c94f9118df",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "white1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "308036b5-4a84-4be7-b2c5-73a0a1b30968",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "black1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d334e33-d5eb-482e-9483-27d9cd7b7b01",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "white2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
