@@ -38,21 +38,21 @@ public class PianoControllr : MonoBehaviour
         //     piano_key.color = color_depressed;
         // }
 
-        if (PianoDefine.instance == null)
-        {
-            Debug.Log("Brak instancji");
-        }
-        if (PianoDefine.instance.isButton2Pressed == true)
-        {
-            if (isBlack == true)
-            {
-                piano_key.color = black_pressed;
-            }
-            else
-            {
-                piano_key.color = white_pressed;
-            }
-        }
+        // if (PianoDefine.instance == null)
+        // {
+        //     Debug.Log("Brak instancji");
+        // }
+        // if (PianoDefine.instance.isButton2Pressed == true)
+        // {
+        //     if (isBlack == true)
+        //     {
+        //         piano_key.color = black_pressed;
+        //     }
+        //     else
+        //     {
+        //         piano_key.color = white_pressed;
+        //     }
+        // }
 
     }
 

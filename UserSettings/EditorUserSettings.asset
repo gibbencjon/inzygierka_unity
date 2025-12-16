@@ -5,25 +5,37 @@ EditorUserSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 4
   m_ConfigSettings:
+    GraphicsSettingsInspector_UserSettings:
+      value: 18134705175a055722080a3115371d4a0d55006876786860616b0471b8b07a68ffab74f9ee2a3a30300cea1a11320d0beb1a0c25f7060f494b4cdf1b18f3045e38cb5ad8
+      flags: 0
     RecentlyUsedSceneGuid-0:
-      value: 5505575351075f0e0b5b5b7240775b44474e4a2e7c782031282b1e36e6b93568
-      flags: 0
-    RecentlyUsedSceneGuid-1:
-      value: 515250075c0c595e5f5a5e71122159444e4e4a2f7a7d7f602f284d66b4b76661
-      flags: 0
-    RecentlyUsedSceneGuid-2:
-      value: 0606025650020803085d5f2446770744474e1e2c7e2d24337f2b4f6be4b93660
-      flags: 0
-    RecentlyUsedSceneGuid-3:
       value: 07550d5606510a585b0c092142775d49444e402c7c7d273474284863b4b8636e
       flags: 0
-    RecentlyUsedSceneGuid-4:
+    RecentlyUsedSceneGuid-1:
       value: 0001525f5c07510a595b0f2346770648174e402e797971672e7a4964b6e1353e
       flags: 0
+    RecentlyUsedSceneGuid-2:
+      value: 05040c035607590f095f0f214774594413154879782b74687f7c4862b7e1303a
+      flags: 0
+    RecentlyUsedSceneGuid-3:
+      value: 0703040451070c5f5b5a5a73442209444f16197c7b782534797b1f63e4e4603e
+      flags: 0
+    RecentlyUsedSceneGuid-4:
+      value: 56530503075659585b5c59704871084440154c2f7479756979784962e4b6666b
+      flags: 0
     RecentlyUsedSceneGuid-5:
-      value: 050103575d030d025a570d7316770e40134f1e2c7c297467752b4b31b5b76d3b
+      value: 5b07555000075a585e5d082749255b44444e1c2c742c7034287a1935b2e36769
       flags: 0
     RecentlyUsedSceneGuid-6:
+      value: 0606025650020803085d5f2446770744474e1e2c7e2d24337f2b4f6be4b93660
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 515250075c0c595e5f5a5e71122159444e4e4a2f7a7d7f602f284d66b4b76661
+      flags: 0
+    RecentlyUsedSceneGuid-8:
+      value: 5b010c035c515c025c5b0f7116260644144e4d2c757074602c7c4c66e0e36269
+      flags: 0
+    RecentlyUsedSceneGuid-9:
       value: 0504005351535c5e0856542146770e4441164e282d7871327e701e6be7e26c3b
       flags: 0
     vcSharedLogLevel:

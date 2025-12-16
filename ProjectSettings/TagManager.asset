@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - metronome_sound
+  - falling_tile
+  - hitbox_early
+  - hitbox_perfect
+  - hitbox_late
   layers:
   - Default
   - TransparentFX

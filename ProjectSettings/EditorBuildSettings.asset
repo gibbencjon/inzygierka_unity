@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Options/BindOptions.unity
     guid: e76057a8e33f648419ff2ebc2b28f9b8
+  - enabled: 1
+    path: Assets/Scenes/LessonMenu.unity
+    guid: 808e9d5915c3fe94b95f9820a515bc61
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

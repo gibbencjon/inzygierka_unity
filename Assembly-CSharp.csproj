@@ -42,31 +42,41 @@
     <UnityVersion>6000.2.7f2</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Users\Gabon\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.1.3\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\Gabon\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.2.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.7f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.7f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.7f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Input\PianoDefine.cs" />
+    <Compile Include="Assets\Scripts\SoundController.cs" />
     <Compile Include="Assets\Scripts\TimelineController.cs" />
-    <Compile Include="Assets\Scripts\EscMenuController.cs" />
     <Compile Include="Assets\Scripts\PianoController.cs" />
-    <Compile Include="Assets\Scripts\HitboxController.cs" />
+    <Compile Include="Assets\Scripts\scriptaable\VolumeScriptable.cs" />
     <Compile Include="Assets\MIDIJACK\Example CC\KnobIndicatorGroup.cs" />
+    <Compile Include="Assets\Scripts\ScoreManager.cs" />
+    <Compile Include="Assets\Scripts\Lessons\Lessons.cs" />
+    <Compile Include="Assets\Scripts\scriptaable\LevelDataScriptableData.cs" />
     <Compile Include="Assets\MIDIJACK\Example CC\KnobIndicator.cs" />
-    <Compile Include="Assets\Scripts\[OLD]PianoController.cs" />
-    <Compile Include="Assets\Scripts\Metronome_Controller.cs" />
+    <Compile Include="Assets\Scripts\Levels\Beatmap_level1.cs" />
+    <Compile Include="Assets\Scripts\Lessons\LessonScreenManager.cs" />
+    <Compile Include="Assets\Scripts\FallingTileController.cs" />
+    <Compile Include="Assets\Scripts\beatline_movement.cs" />
+    <Compile Include="Assets\Scripts\Menu\LessonButtonHandler.cs" />
     <Compile Include="Assets\MIDIJACK\Example Note\NoteIndicator.cs" />
+    <Compile Include="Assets\Scripts\KeyInstanceScript.cs" />
     <Compile Include="Assets\MIDIJACK\MidiJack\Midi.cs" />
+    <Compile Include="Assets\Scripts\Menu\EscMenuController.cs" />
+    <Compile Include="Assets\Scripts\Levels\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\old\PianoDefine.cs" />
     <Compile Include="Assets\Scripts\FallingTileScript.cs" />
+    <Compile Include="Assets\Scripts\scriptaable\CurrentLevelScriptable.cs" />
     <Compile Include="Assets\MIDIJACK\Example Note\NoteIndicatorGroup.cs" />
-    <Compile Include="Assets\Scripts\ChangeScene.cs" />
+    <Compile Include="Assets\Scripts\old\[OLD]PianoController.cs" />
     <Compile Include="Assets\MIDIJACK\Example Delegate\DelegateTester.cs" />
     <Compile Include="Assets\Scripts\Input\MidiKeyboardAction.cs" />
+    <Compile Include="Assets\Scripts\Menu\ChangeScene.cs" />
     <Compile Include="Assets\MIDIJACK\MidiJack\MidiStateUpdater.cs" />
     <Compile Include="Assets\MIDIJACK\MidiJack\MidiMaster.cs" />
-    <Compile Include="Assets\Scripts\timeline_object_movement.cs" />
     <Compile Include="Assets\MIDIJACK\MidiJack\MidiDriver.cs" />
   </ItemGroup>
   <ItemGroup>

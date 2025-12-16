@@ -1,43 +1,74 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Collections;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class TimelineController : MonoBehaviour
 {
-    public AudioSource tick_up;
-    public AudioSource tick_down;
-    public GameObject beat_line;
-    public Transform parent;
-    public int tact = 4;
-    public float beat_tempo; // w razie potrzeby zserializowac
-    private float current_time = 0f;
-    private float beat_delta;
-    private float beat_test;
+    public AudioSource source_tick_up;
+    public AudioSource source_tick_down;
+    private AudioClip clip_tick_up;
+    private AudioClip clip_tick_down;
+
+    
+
+    public EscMenuController esc_menu_ctrl;
 
     // falling tiles
     public GameObject key_white; // potrzebne do instancji
     public GameObject key_black;
-    private List<GameObject> white_keys_list = new List<GameObject>();
-    private List<GameObject> black_keys_list = new List<GameObject>();
 
-    // Timeline
+    // beatline
+    public GameObject beat_line;
+    public Transform parent;
     public float falling_speed;
     public float offset = 247f; 
     private float beat_delta_timeline;
-    private bool is_timeline_initiated;
+
+    // Timeline
+    private int tact;
+    public float beat_tempo;
+    public float current_time = 0f;
+    private float ending_time;
+    private bool activate_ending_mechanism;
+
+    private float beat_delta_metronome;
+    public bool is_timeline_initiated;
+    
 
     // metronom
     private int tick = 0;
-    private float beat_delta_metronome;
-    private bool is_metronome_active;
+
+    // tu jest import beatmapy ze skryptu
+    List<object> level;
+    [SerializeField] private CurrentLevelScriptableData current_level;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // spawnowanie kafelkow
+    public FallingTileScript[] spawned_objects;
+    FallingTileController falling_controller;
+    public int tiles_pressed;
+
+    ScoreManager score_manager;
+    
+
+
     void Start()
     {
-        beat_delta = 60f / beat_tempo; // zakladajac ze w ciagu 60 sekund wystepuje iles beatow
-        // usunieto to z void update bo teraz zmiany bpm i beat delta beda na biezaco z edytora
+        falling_controller = FindAnyObjectByType<FallingTileController>();
+        esc_menu_ctrl = FindAnyObjectByType<EscMenuController>();
+        score_manager = FindAnyObjectByType<ScoreManager>();
+        clip_tick_up = source_tick_up.clip;
+        clip_tick_down = source_tick_down.clip;
+
+        score_manager.DeactivateScoreScreen();
+
+        level = current_level.GetNextLevelToLoad();
+        beat_tempo = current_level.GetLevelBPM();
+        tact = current_level.GetLevelTact();
+        // Debug.Log(level.Count);
+        
     }
 
     private float CountBeatDelta(float x)
@@ -52,7 +83,6 @@ public class TimelineController : MonoBehaviour
         beatline_movement moveBeatline = new_beat_line.AddComponent<beatline_movement>();
         moveBeatline.beat_tempo = beat_tempo;
         moveBeatline.falling_speed = falling_speed;
-        moveBeatline.offset = offset;
 
         // 267 - 200 BPM
         // 264 - 180 bpm
@@ -64,48 +94,18 @@ public class TimelineController : MonoBehaviour
 
     }
 
-    private void SpawnBeatLine()
-    {
-        CreateBeatlineObject();
-        Debug.Log("obiekt utworzono");
-    }
-
-    private void SpawnFallingTile(string tile_type, int key_select) // klawisze sa zliczane od 1 a nie od 0 dla wygody
-    {
-        if (tile_type == "w")
-        {
-            GameObject new_falling_tile = Instantiate(key_white, transform.position, Quaternion.identity, parent);
-            FallingTileScript move_falling_tile = new_falling_tile.AddComponent<FallingTileScript>();
-            move_falling_tile.beat_tempo = beat_tempo;
-            
-            
-            // move_falling_tile.transform.position = new_falling_tile.GetComponent<Transform>().position
-
-            // utwórz zmienną która wyliczy odległość w zależności od tempa, przypisz domyślną pozycję na dole i dodaj obiekt wyżej
-            
-        }
-        else if (tile_type == "b")
-        {
-            GameObject new_falling_tile = Instantiate(key_black, transform.position, Quaternion.identity, parent);
-            FallingTileScript move_falling_tile = new_falling_tile.AddComponent<FallingTileScript>();
-            move_falling_tile.beat_tempo = beat_tempo;
-
-        }
-        else { Debug.Log("Nienznay typ obiektu white/black"); }
-            
-    }
 
     private void SummonMetronomeSound()
     {
-        if (tick == 0) { tick_up.Play(); }
-        else { tick_down.Play(); }
+        // mozesz sprobowac zsynchronizowac pozycje timeline'a z pozycja
+        if (tick == 0) { source_tick_up.PlayOneShot(clip_tick_up); }
+        else { source_tick_down.PlayOneShot(clip_tick_down); }
         tick += 1;
-        if (tick >= tact) { tick = 0; }  
+        if (tick >= tact) { tick = 0; }
     }
     
-
-
-    // Update is called once per frame
+    
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -121,43 +121,75 @@ public class TimelineController : MonoBehaviour
             is_timeline_initiated = false;
             current_time = 0f;
         }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            SpawnFallingTile("w", 1);
-        }
 
+        
         // jesli wcisniesz spacje to zaczyna leciec timer
         if (is_timeline_initiated)
         {
-            current_time += Time.deltaTime;
-            beat_delta_metronome -= Time.deltaTime;
-            beat_delta_timeline += Time.deltaTime;
+            // to musi tu byc
+            // mimo tego ze inne skrypty z niego korzystaja to tu jest warunek spawnowania
+            spawned_objects = FindObjectsByType<FallingTileScript>(FindObjectsSortMode.None);
             
-            
-
-
-            // dodac warunek ukonczenia np. gdy wszystkie kafelki zostana pokazane
-            // albo gdy po ostatnim kafelku uplynie iles czasu
-            // spawnij obiekty tak zeby timing byl przy klawiszu
-
-            // najlepiej by bylo zrobic cala mechanike beatow i tactow w tym miejscu w void update
-            // na podstawie pewnej delty mozna wyliczyc kiedy obiekt ma sie spawnic
-            if (beat_delta_timeline >= CountBeatDelta(60 * tact))
+            if (!esc_menu_ctrl.isMenuEnabled)
             {
-                SpawnBeatLine();
-                beat_delta_timeline -= CountBeatDelta(60 * tact);
+                current_time += Time.deltaTime;
+                beat_delta_timeline -= Time.deltaTime;
+                beat_delta_metronome -= Time.deltaTime;
+            }
+
+            if (beat_delta_timeline <= 0f)
+            {
+                CreateBeatlineObject();
+                beat_delta_timeline += CountBeatDelta(120f * tact);
             }
 
 
-            if (beat_delta_metronome <= 0f)
+            if (beat_delta_metronome + offset/1000f <= 0f)
             {
                 SummonMetronomeSound();
-                beat_delta_metronome += 60f / beat_tempo;
-
+                beat_delta_metronome += CountBeatDelta(60f);
             }
 
+
+            if (activate_ending_mechanism)
+            {
+                if (ending_time <= 2f)
+                {
+                    ending_time += Time.deltaTime;
+                }
+                else
+                {
+                    is_timeline_initiated = false;
+                    score_manager.ActivateScoreScreen();
+                }
+                
+            }
+
+            try
+            {
+                for (int i = 0; i < level.Count; i+=3)
+                {
+                    // if (spawned_objects.Length > 100) return;
+                    if (i + 2 < level.Count)
+                    {
+                        // https://stackoverflow.com/questions/69427121/in-c-sharp-how-i-can-convert-from-object-to-float
+                        // parsujesz drugi element z listy beatmapy czyli wyciagasz z niego floata
+                        float delay = float.Parse(level[i+1].ToString());
+                        if (current_time >= CountBeatDelta(delay * 60) && (int)level[i+2] == 0)
+                        {
+                            falling_controller.CreateFallingTile((int)level[i], delay);
+                            level[i+2] = 1;
+                        }
+                        // warunek konca beatmapy
+                        if (tiles_pressed == level.Count/3)
+                        {
+                            activate_ending_mechanism = true;
+                        }
+                    }
+                }
+            }
+            catch (NullReferenceException) {Debug.Log("nie zaladowano elementow beatmapy"); return;}
         }
-        
     }
 }
 

@@ -34,6 +34,20 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-1046881959177025999
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 9c056d809ba277e48b34880a2612bc3a
+  m_EffectName: Attenuation
+  m_MixLevel: 7089c47da3042054badba65c6d2e35ad
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -50,11 +64,18 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: ed840bfcc28cbe94498f45aded0873e0
+    name: Master
+  - guid: 7366125fe82701042a7b832b45e72380
+    name: Metronome
+  - guid: 9876a7d677c6cc845ae98028b14fa42b
+    name: Piano
   m_AudioMixerGroupViews:
   - guids:
     - fa3506471c5f38543b85f114cd0af399
     - 067da35b26d9e124794bd35762c40b54
+    - f64117bedd33d9c429f29863fdd77a3e
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -69,6 +90,7 @@ AudioMixerGroupController:
   m_GroupID: fa3506471c5f38543b85f114cd0af399
   m_Children:
   - {fileID: 4649315855330990170}
+  - {fileID: 8040510717221603289}
   m_Volume: ed840bfcc28cbe94498f45aded0873e0
   m_Pitch: bb2f869cce650984397eeaa8d9e9e480
   m_Send: 00000000000000000000000000000000
@@ -103,8 +125,10 @@ AudioMixerSnapshotController:
   m_SnapshotID: 07556702e2959eb4988003e87e1c08ff
   m_FloatValues:
     231715e0678712d40bbfe35b13441254: 1.96
+    9876a7d677c6cc845ae98028b14fa42b: 0.13552584
     0590dabd3f7b797448ffc16c40199691: 1.91
     80935d8e23ce8ae418dc1a02d93aafa2: 47
+    7366125fe82701042a7b832b45e72380: 0
   m_TransitionOverrides: {}
 --- !u!243 &4649315855330990170
 AudioMixerGroupController:
@@ -126,6 +150,25 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!243 &8040510717221603289
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Piano
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: f64117bedd33d9c429f29863fdd77a3e
+  m_Children: []
+  m_Volume: 9876a7d677c6cc845ae98028b14fa42b
+  m_Pitch: dd38bf004c51a49439d5576776e35ff5
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -1046881959177025999}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!245 &9210295026148660182
 AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
@@ -140,5 +183,5 @@ AudioMixerSnapshotController:
     ed840bfcc28cbe94498f45aded0873e0: 0.10800299
     0590dabd3f7b797448ffc16c40199691: 1.91
     80935d8e23ce8ae418dc1a02d93aafa2: 47
-    7366125fe82701042a7b832b45e72380: -80
+    7366125fe82701042a7b832b45e72380: 0
   m_TransitionOverrides: {}
