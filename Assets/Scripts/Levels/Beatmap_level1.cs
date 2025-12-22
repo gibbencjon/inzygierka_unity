@@ -5,43 +5,332 @@ using UnityEngine;
 
 // zeby dodac level trzeba tu zrobic przypisania obiektow, dodac nazwe listy do LevelManager w SelectLevel()
 // dodac LevelDataScriptableData z info o levelu
-// uproscic proces, wyjebac ten skrypt i wkleic te listy do leveli
-// a do nich przypisy
 
 public class Beatmap_level : MonoBehaviour
 {
     public List<object> level1 = new List<object>()
-    { //id, delay, hasSpawned (int)
-        16, 0f, 0,
-        14, 1f, 0,
-        12, 2f, 0,
-        14, 3f, 0,
-        16, 4f, 0,
-        16, 5f, 0,
-        16, 6f, 0,
-        14, 8f, 0,
-        14, 9f, 0,
-        14, 10f, 0,
-        16, 12f, 0,
-        16, 13f, 0,
-        16, 14f, 0,
-        16, 16f, 0,
-        14, 17f, 0,
-        12, 18f, 0,
-        14, 19f, 0,
-        16, 20f, 0,
-        16, 21f, 0,
-        16, 22f, 0,
-        16, 23f, 0,
-        14, 24f, 0,
-        14, 25f, 0,
-        16, 26f, 0,
-        14, 27f, 0,
-        12, 28f, 0,
+    { // id, delay, hasSpawned (int)
         
+        0, 1f, 0
     };
+
+    /// <summary>
+    /// dla kazdej lekcji dac offset inny bo cos sie pierdoli z metronomem
+    /// </summary>
     
     public List<object> level2 = new List<object>()
+    {
+        36, 0f, 0,
+        38, 1f, 0,
+        40, 2f, 0,
+        41, 3f, 0,
+        43, 4f, 0,
+        41, 5f, 0,
+        40, 6f, 0,
+        38, 7f, 0,
+        36, 8f, 0,
+        38, 9f, 0,
+        40, 10f, 0,
+        41, 11f, 0,
+        43, 12f, 0,
+        41, 13f, 0,
+        40, 14f, 0,
+        38, 15f, 0,
+        36, 16f, 0,
+        //
+        12, 24f, 0,
+        14, 25f, 0,
+        16, 26f, 0,
+        17, 27f, 0,
+        19, 28f, 0,
+        17, 29f, 0,
+        16, 30f, 0,
+        14, 31f, 0,
+        12, 32f, 0,
+        14, 33f, 0,
+        16, 34f, 0,
+        17, 35f, 0,
+        19, 36f, 0,
+        17, 37f, 0,
+        16, 38f, 0,
+        14, 39f, 0,
+        12, 40f, 0,
+    };
+
+    public List<object> level3 = new List<object>()
+    {
+        37, 0f, 0,
+        39, 1f, 0,
+        42, 2f, 0,
+        44, 3f, 0,
+        46, 4f, 0,
+        44, 5f, 0,
+        42, 6f, 0,
+        39, 7f, 0,
+        37, 8f, 0,
+        39, 9f, 0,
+        42, 10f, 0,
+        44, 11f, 0,
+        46, 12f, 0,
+        44, 13f, 0,
+        42, 14f, 0,
+        39, 15f, 0,
+        37, 16f, 0,
+        //
+        13, 24f, 0,
+        15, 25f, 0,
+        18, 26f, 0,
+        20, 27f, 0,
+        22, 28f, 0,
+        20, 29f, 0,
+        18, 30f, 0,
+        15, 31f, 0,
+        13, 32f, 0,
+        15, 33f, 0,
+        18, 34f, 0,
+        20, 35f, 0,
+        22, 36f, 0,
+        20, 37f, 0,
+        18, 38f, 0,
+        15, 39f, 0,
+        13, 40f, 0,
+    };
+
+    public List<object> level4 = new List<object>()
+    {
+        // Marysia ma baranka
+        40, 0f, 0,
+        38, 1f, 0,
+        36, 2f, 0,
+        38, 3f, 0,
+        40, 4f, 0, 
+        40, 5f, 0,
+        40, 6f, 0,
+
+        38, 8f, 0,
+        38, 9f, 0,
+        38, 10f, 0,
+
+        40, 12f, 0,
+        40, 13f, 0,
+        40, 14f, 0,
+        
+        40, 16f, 0,
+        38, 17f, 0,
+        36, 18f, 0,
+        38, 19f, 0,
+        40, 20f, 0,
+        40, 21f, 0,
+        40, 22f, 0,
+        40, 23f, 0,
+        38, 24f, 0,
+        38, 25f, 0,
+        40, 26f, 0,
+        38, 27f, 0,
+        36, 28f, 0,
+        // dolne klawisze
+        16, 32f, 0,
+        14, 33f, 0,
+        12, 34f, 0,
+        14, 35f, 0,
+        16, 36f, 0,
+        16, 37f, 0,
+        16, 38f, 0,
+
+        14, 40f, 0,
+        14, 41f, 0,
+        14, 42f, 0,
+
+        16, 44f, 0,
+        16, 45f, 0,
+        16, 46f, 0,
+
+        16, 48f, 0,
+        14, 49f, 0,
+        12, 50f, 0,
+        14, 51f, 0,
+        16, 52f, 0,
+        16, 53f, 0,
+        16, 54f, 0,
+        16, 55f, 0,
+        14, 56f, 0,
+        14, 57f, 0,
+        16, 58f, 0,
+        14, 59f, 0,
+        12, 60f, 0, 
+    };
+
+    public List<object> level5 = new List<object>()
+    {
+        40, 0f, 0,
+        40, 0.5f, 0,
+        38, 1f, 0,
+        38, 1.5f, 0,
+        36, 2f, 0,
+
+        40, 4f, 0,
+        40, 4.5f, 0,
+        38, 5f, 0,
+        38, 5.5f, 0,
+        36, 6f, 0,
+
+        40, 8f, 0,
+        40, 8.5f, 0,
+        41, 9f, 0,
+        41, 9.5f, 0,
+        43, 10f, 0,
+        43, 10.5f, 0,
+        41, 11f, 0,
+        41, 11.5f, 0,
+        40, 12f, 0,
+        40, 12.5f, 0,
+        38, 13f, 0,
+        38, 13.5f, 0,
+        36, 14f, 0,
+
+        16, 16f, 0,
+        16, 16.5f, 0,
+        14, 17f, 0,
+        14, 17.5f, 0,
+        12, 18f, 0,
+
+        16, 20f, 0,
+        16, 20.5f, 0,
+        14, 21f, 0,
+        14, 21.5f, 0,
+        12, 22f, 0,
+
+        16, 24f, 0,
+        16, 24.5f, 0,
+        17, 25f, 0,
+        17, 25.5f, 0,
+        19, 26f, 0,
+        19, 26.5f, 0,
+        17, 27f, 0,
+        17, 27.5f, 0,
+        16, 28f, 0,
+        16, 28.5f, 0,
+        14, 29f, 0,
+        14, 29.5f, 0,
+        12, 30f, 0,
+    };
+
+    public List<object> level6 = new List<object>()
+    {
+        40, 0f, 0,
+        40, 0.5f, 0,
+        38, 1f, 0,
+        38, 1.5f, 0,
+        36, 2f, 0,
+
+        40, 4f, 0,
+        40, 4.5f, 0,
+        38, 5f, 0,
+        38, 5.5f, 0,
+        36, 6f, 0,
+
+        40, 8f, 0,
+        40, 8.5f, 0,
+        41, 9f, 0,
+        41, 9.5f, 0,
+        43, 10f, 0,
+        43, 10.5f, 0,
+        41, 11f, 0,
+        41, 11.5f, 0,
+        40, 12f, 0,
+        40, 12.5f, 0,
+        38, 13f, 0,
+        38, 13.5f, 0,
+        36, 14f, 0,
+
+        16, 16f, 0,
+        16, 16.5f, 0,
+        14, 17f, 0,
+        14, 17.5f, 0,
+        12, 18f, 0,
+
+        16, 20f, 0,
+        16, 20.5f, 0,
+        14, 21f, 0,
+        14, 21.5f, 0,
+        12, 22f, 0,
+
+        16, 24f, 0,
+        16, 24.5f, 0,
+        17, 25f, 0,
+        17, 25.5f, 0,
+        19, 26f, 0,
+        19, 26.5f, 0,
+        17, 27f, 0,
+        17, 27.5f, 0,
+        16, 28f, 0,
+        16, 28.5f, 0,
+        14, 29f, 0,
+        14, 29.5f, 0,
+        12, 30f, 0,
+    };
+
+    public List<object> level7 = new List<object>()
+    {
+       
+    };
+
+    public List<object> undertale_ending = new List<object>()
+    { // bpm 100, tact 3
+        18, 0f, 0,
+		25, 0.5f, 0,
+		21, 1f, 0,
+		20, 2f, 0,
+		21, 2.5f, 0,
+		23, 3f, 0,
+		// ---
+		16, 5.5f, 0,
+		18, 6f, 0,
+		25, 6.5f, 0,
+		21, 7f, 0,
+		20, 8f, 0,
+		21, 8.5f, 0,
+		23, 9f, 0,
+		// --- upper line
+		39, 10f, 0,
+		40, 10.5f, 0,
+		39, 11f, 0,
+		40, 11.125f, 0,
+		39, 11.25f, 0,
+		35, 11.5f, 0,
+		// bottom line beat 1
+		18, 12f, 0,
+		25, 12.5f, 0,
+		21, 13f, 0,
+		20, 14f, 0,
+		21, 14.5f, 0,
+		23, 15f, 0,
+		// upper line beat 1
+		37, 12f, 0,
+		42, 13.5f, 0,
+		45, 14.5f, 0,
+		42, 15f, 0,
+		44, 16f, 0,
+		45, 16.5f, 0,
+		47, 17f, 0,
+		44, 17.5, 0,
+		45, 18f, 0,
+		// --- bottom line beat 2
+		16, 17.5f, 0,
+		18, 18f, 0,
+		25, 18.5f, 0,
+		21, 19f, 0,
+		20, 20f, 0,
+		21, 20.5f, 0,
+		23, 21f, 0,
+		// --- upperline beat 2
+        44, 19.5f, 0,
+        42, 20.5f, 0,
+        40, 20.75f, 0,
+        39, 21f, 0,
+    };
+
+    public List<object> all_buttons_test = new List<object>()
     {
         0, 0f, 0,
         1, 1f, 0,
@@ -108,86 +397,4 @@ public class Beatmap_level : MonoBehaviour
         40, 62f, 0,
         50, 62f, 0,
     };
-
-    public List<object> level3 = new List<object>()
-    {
-      0, 0f, 0,  
-    };
-
-    public List<object> undertale_ending = new List<object>()
-    { // bpm 100, tact 3
-        18, 0f, 0,
-		25, 0.5f, 0,
-		21, 1f, 0,
-		20, 2f, 0,
-		21, 2.5f, 0,
-		23, 3f, 0,
-		// ---
-		16, 5.5f, 0,
-		18, 6f, 0,
-		25, 6.5f, 0,
-		21, 7f, 0,
-		20, 8f, 0,
-		21, 8.5f, 0,
-		23, 9f, 0,
-		// --- upper line
-		39, 10f, 0,
-		40, 10.5f, 0,
-		39, 11f, 0,
-		40, 11.125f, 0,
-		39, 11.25f, 0,
-		35, 11.5f, 0,
-		// bottom line beat 1
-		18, 12f, 0,
-		25, 12.5f, 0,
-		21, 13f, 0,
-		20, 14f, 0,
-		21, 14.5f, 0,
-		23, 15f, 0,
-		// upper line beat 1
-		37, 12f, 0,
-		42, 13.5f, 0,
-		45, 14.5f, 0,
-		42, 15f, 0,
-		44, 16f, 0,
-		45, 16.5f, 0,
-		47, 17f, 0,
-		44, 17.5, 0,
-		45, 18f, 0,
-		// --- bottom line beat 2
-		16, 17.5f, 0,
-		18, 18f, 0,
-		25, 18.5f, 0,
-		21, 19f, 0,
-		20, 20f, 0,
-		21, 20.5f, 0,
-		23, 21f, 0,
-		// --- upperline beat 2
-        44, 19.5f, 0,
-        42, 20.5f, 0,
-        40, 20.75f, 0,
-        39, 21f, 0,
-    };
-
- // jakbys sie zdecydowal na scriptabla
-// using UnityEngine;
-// using System.Collections.Generic;
-
-// [CreateAssetMenu(fileName = "NewData", menuName = "Data/MyData")]
-// public class MyData : ScriptableObject
-// {
-//     [System.Serializable]
-//     public class DataEntry
-//     {
-//         public int intValue;
-//         public float floatValue;
-//         public bool boolValue;
-//     }
-
-//     public List<DataEntry> dataEntries = new List<DataEntry>();
-// }
-
-
-
-
 }

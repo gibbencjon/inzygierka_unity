@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: VolumeScriptableData
   m_EditorClassIdentifier: Assembly-CSharp::VolumeScriptableData
   master_volume: 1
-  metronome_volume: 0.47190705
+  metronome_volume: 1
   piano_volume: 1

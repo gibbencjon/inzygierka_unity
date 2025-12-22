@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e2d7ab68dca7eb4f8ba838c42700705, type: 3}
-  m_Name: Level3_Data
+  m_Name: Level4_Data
   m_EditorClassIdentifier: Assembly-CSharp::LevelDataScriptableData
-  level_id: 2
-  level_name: Lekcja 3
-  level_desc: "W tym \u0107wiczeniu nauczysz si\u0119 gra\u0107 na czarnych klawiszach."
-  tempo: 90
+  level_id: 3
+  level_name: Lekcja 4
+  level_desc: "W tej lekcji zagrasz piosenk\u0119 \"Marysia ma ma\u0142ego baranka\""
+  tempo: 100
   tact: 4
-  level_delay: 75
-  tile_count: 34
+  level_delay: 345
+  tile_count: 52
   best_score: 0

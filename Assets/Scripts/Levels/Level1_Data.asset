@@ -15,7 +15,7 @@ MonoBehaviour:
   level_id: 0
   level_name: Lekcja 1
   level_desc: W tej lekcji nauczysz sie podstaw grania na instrumencie
-  tempo: 110
+  tempo: 0
   tact: 4
-  tile_count: 36
-  best_score: 57
+  tile_count: 0
+  best_score: 0

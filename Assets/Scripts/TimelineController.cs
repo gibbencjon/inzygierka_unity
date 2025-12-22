@@ -67,7 +67,10 @@ public class TimelineController : MonoBehaviour
         level = current_level.GetNextLevelToLoad();
         beat_tempo = current_level.GetLevelBPM();
         tact = current_level.GetLevelTact();
+        offset = current_level.GetLeveLDelay();
         // Debug.Log(level.Count);
+
+        
         
     }
 
@@ -143,12 +146,14 @@ public class TimelineController : MonoBehaviour
                 beat_delta_timeline += CountBeatDelta(120f * tact);
             }
 
-
             if (beat_delta_metronome + offset/1000f <= 0f)
             {
                 SummonMetronomeSound();
                 beat_delta_metronome += CountBeatDelta(60f);
             }
+
+
+            
 
 
             if (activate_ending_mechanism)
@@ -167,6 +172,7 @@ public class TimelineController : MonoBehaviour
 
             try
             {
+
                 for (int i = 0; i < level.Count; i+=3)
                 {
                     // if (spawned_objects.Length > 100) return;
@@ -188,7 +194,7 @@ public class TimelineController : MonoBehaviour
                     }
                 }
             }
-            catch (NullReferenceException) {Debug.Log("nie zaladowano elementow beatmapy"); return;}
+            catch (NullReferenceException) {Debug.Log("nie zaladowano elementow beatmapy"); is_timeline_initiated = false; return;}
         }
     }
 }

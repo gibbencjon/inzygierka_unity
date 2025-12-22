@@ -54,6 +54,9 @@ public class LevelManager : MonoBehaviour
             beatmap_level.level1,
             beatmap_level.level2,
             beatmap_level.level3,
+            beatmap_level.level4,
+            beatmap_level.level5,
+            beatmap_level.level6,
             beatmap_level.undertale_ending,
         };
         for (int i = 0; i <= all_levels.Count; i++)
@@ -65,6 +68,7 @@ public class LevelManager : MonoBehaviour
                 current_level_data.SetNextLevel(level_to_load);
                 current_level_data.SetLevelBPM(level_data.GetLevelTempo());
                 current_level_data.SetLevelTact(level_data.GetLevelTact());
+                current_level_data.SetLevelDelay(level_data.GetLeveLDelay());
             }
         }
     }

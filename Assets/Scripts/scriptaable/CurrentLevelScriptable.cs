@@ -9,6 +9,7 @@ public class CurrentLevelScriptableData : ScriptableObject
     [SerializeField] private float bpm;
     [SerializeField] private int tact;
     [SerializeField] private int id;
+    [SerializeField] private float level_delay;
 
 
     public List<object> GetNextLevelToLoad() {return next_level_to_load;}
@@ -22,4 +23,7 @@ public class CurrentLevelScriptableData : ScriptableObject
 
     public int GetLevelID() {return id;}
     public void SetLeveLID(int x) {id = x;}
+
+    public float GetLeveLDelay() {return level_delay;}
+    public void SetLevelDelay(float x) {level_delay = x;}
 }

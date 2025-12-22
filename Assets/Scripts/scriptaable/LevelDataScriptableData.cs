@@ -10,6 +10,7 @@ public class LevelDataScriptableData : ScriptableObject
     [SerializeField] private string level_desc;
     [SerializeField] private float tempo;
     [SerializeField] private int tact;
+    [SerializeField] private float level_delay;
 
 
     // usunac serializacje
@@ -23,5 +24,7 @@ public class LevelDataScriptableData : ScriptableObject
     public int GetTileCount() {return tile_count;}
     public float GetBestScore() { return best_score;}
     public void SetBestScore(float x) {best_score = x;}
+    public float GetLeveLDelay() {return level_delay;}
+    public void SetLevelDelay(float x) {level_delay = x;}
 
 }

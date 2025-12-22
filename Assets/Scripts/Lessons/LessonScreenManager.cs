@@ -56,7 +56,6 @@ public class LessonScreenManager : MonoBehaviour
             }
         }
         catch (ArgumentOutOfRangeException) {}
-        Debug.Log(page);
         page_counter.text = "" + (page + 1) + "/" + current_lesson.screen_list.Count;
     }
 

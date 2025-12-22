@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelDataScriptableData
   level_id: 1
   level_name: Lekcja 2
-  level_desc: "W tej lekcji niczego si\u0119 nie nauczysz. Zr\xF3b refunda i nie
-    marnuj swojego czasu."
-  tempo: 180
+  level_desc: "W tej lekcji nauczysz si\u0119 jak uk\u0142ada\u0107 d\u0142onie do
+    pianina i wykonasz jedno kr\xF3tkie \u0107wiczenie."
+  tempo: 90
   tact: 4
-  tile_count: 1882
-  best_score: 2.17
+  level_delay: 75
+  tile_count: 34
+  best_score: 0
